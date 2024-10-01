@@ -32,6 +32,12 @@ struct Vector2
     {
         return Vector2(x * other.x, y * other.y);
     }
+
+    // Example operator overload now for the multiply constructor
+    Vector2 operator*(const Vector2 &other) const
+    {
+        return Multiply(other);
+    }
 };
 
 int main()
@@ -40,8 +46,8 @@ int main()
     Vector2 speed(0.5f, 1.5f);
     Vector2 powerup(1.1f, 1.1f);
 
-    Vector2 result1 = position.Add(speed.Multiply(powerup));
-    Vector2 result2 = position + speed; //* powerup;
+    Vector2 result1 = position.Add(speed.Multiply(powerup)); // At first we would've had to write the the code like this without the overloading
+    Vector2 result2 = position + speed * powerup;            // Now we are able to simplify the code this way thanks to the overloads
 
     std::cin.get();
 }
