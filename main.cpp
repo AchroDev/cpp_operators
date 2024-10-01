@@ -49,5 +49,7 @@ int main()
     Vector2 result1 = position.Add(speed.Multiply(powerup)); // At first we would've had to write the the code like this without the overloading
     Vector2 result2 = position + speed * powerup;            // Now we are able to simplify the code this way thanks to the overloads
 
+    std::cout << result2 << std::endl; // Can't do this as there isn't an overload yet, the '<<' is called the left-shift operator
+
     std::cin.get();
 }
